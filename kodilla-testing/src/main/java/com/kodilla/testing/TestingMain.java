@@ -7,14 +7,14 @@ public class TestingMain {
 
     public static void main(String[] args) {
 
-        /*  SimpleUser user = new SimpleUser("Filip");
+         SimpleUser user = new SimpleUser("Filip");
             String result = user.getUsername();
         if (result.equals("Filip")) {
             System.out.println("Jest okej");
         } else {
             System.out.println("nie jest okej");
         }
-        */
+
 
         Calculator calculatorAdd = new Calculator();
         Calculator calculatorSubtract = new Calculator();

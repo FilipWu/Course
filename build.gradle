@@ -23,11 +23,16 @@ dependencies {
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.11.4'
     testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.11.4'
+    testImplementation 'org.mockito:mockito-core:5.15.2'
+    testImplementation 'org.mockito:mockito-junit-jupiter:5.15.2'
 }
 
 tasks.withType(Test).configureEach {
     useJUnitPlatform()
 }
+test {
+    useJUnitPlatform()
+}
 tasks.named('bootJar') {
-    mainClass = 'com.kodilla.testing' // Zmień na rzeczywistą nazwę Twojej klasy głównej
+    mainClass = 'com.kodilla.testing.TestingMain'
 }

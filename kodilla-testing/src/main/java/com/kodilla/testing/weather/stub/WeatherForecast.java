@@ -22,4 +22,16 @@ public class WeatherForecast {
         }
         return resultMap;
     }
+    public double calculateAverageTemperature() {
+        double sum = 0;
+        int count = 0;
+         Map<String,Double> temperatureMap  = temperatures.getTemperatures();
+         for (Double temperature : temperatureMap .values()) {
+             sum += temperature;
+             count++;
+         }
+         return sum / count;
+
+
+    }
 }

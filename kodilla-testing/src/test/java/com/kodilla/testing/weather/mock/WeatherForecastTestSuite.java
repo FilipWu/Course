@@ -31,5 +31,22 @@ class WeatherForecastTestSuite {                                              //
 
         //Then
         Assertions.assertEquals(5, quantityOfSensors);                          // [13]
-    }                                                                          // [14]
+    }
+    @Test
+    void testCalculateForecastAverage(){
+        Temperatures temperaturesMock = mock(Temperatures.class);
+        Map<String, Double> temperaturesMap = new HashMap<>();
+        temperaturesMap.put("Rzeszow", 25.5);
+        temperaturesMap.put("Krakow", 26.2);
+        temperaturesMap.put("Wroclaw", 24.8);
+        temperaturesMap.put("Warszawa", 25.2);
+        temperaturesMap.put("Gdansk", 26.1);
+        when(temperaturesMock.getTemperatures()).thenReturn(temperaturesMap);
+        WeatherForecast weatherForecast = new WeatherForecast(temperaturesMock);
+
+        double averageTemperature = weatherForecast.calculateAverageTemperature();
+        //double expectedTemperature = temperaturesMap.v
+
+    }
 }
+

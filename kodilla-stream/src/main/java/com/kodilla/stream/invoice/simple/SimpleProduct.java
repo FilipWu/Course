@@ -4,7 +4,7 @@ public final class SimpleProduct {
     private final String productName;
     private final double productPrice;
 
-    public SimpleProduct(String productName, double productPrice) {
+    public SimpleProduct(final String productName, final double productPrice) {
         this.productName = productName;
         this.productPrice = productPrice;
     }
@@ -16,7 +16,6 @@ public final class SimpleProduct {
     public double getProductPrice() {
         return productPrice;
     }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

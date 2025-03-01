@@ -4,7 +4,7 @@ package com.kodilla;
 
 import com.kodilla.stream.book.Book;
 import com.kodilla.stream.book.BookDirectory;
-import com.kodilla.stream.forum.ForumUser;
+
 
 
 import java.time.LocalDate;
@@ -12,7 +12,6 @@ import java.util.List;
 
 import java.util.Map;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class StreamMain {
     public static void main(String[] args) {

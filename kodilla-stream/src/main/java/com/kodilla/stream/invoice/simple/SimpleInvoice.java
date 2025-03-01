@@ -10,10 +10,10 @@ public final class SimpleInvoice {
     public void addItem(SimpleItem item) {
         items.add(item);
     }
-    public boolean removeItem(SimpleItem item) {
+    public boolean remoweItem(SimpleItem item) {
         return items.remove(item);
     }
-    public double getTotalPrice() {
+    public double getValueToPay() {
         return items.stream()
                 .collect(Collectors.summingDouble(SimpleItem::getValue));
     }

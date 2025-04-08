@@ -14,13 +14,13 @@ public class FlightFinder {
     }
     public boolean findFlight(Flight flight) throws RouteNotFoundException {
 
-        if(!flightMap.containsKey(flight.getArrivalAirport())){
-            throw new RouteNotFoundException("przylot do Lotniska " +flight.getArrivalAirport() + " nie istnieje, nie ma takiego lotniska");
+        if (!flightMap.containsKey(flight.getArrivalAirport())) {
+            throw new RouteNotFoundException("przylot do Lotniska " + flight.getArrivalAirport() + " nie istnieje, nie ma takiego lotniska");
+        } else if (!flightMap.containsKey(flight.getDepartureAirport())) {
+            throw new RouteNotFoundException("Odlot z Lotniska " + flight.getDepartureAirport() + " nie istnieje, nie ma takiego lotniska");
+        } else {
+            return flightMap.get(flight.getArrivalAirport());
         }
-        if(!flightMap.containsKey(flight.getDepartureAirport())){
-            throw new RouteNotFoundException("Odlot z Lotniska " +flight.getDepartureAirport() + " nie istnieje, nie ma takiego lotniska");
-        }
-        return flightMap.get(flight.getArrivalAirport());
     }
 
     }

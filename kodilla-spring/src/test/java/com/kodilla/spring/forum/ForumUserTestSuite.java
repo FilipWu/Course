@@ -12,7 +12,9 @@ public class ForumUserTestSuite {
         ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring.forum");
         ForumUser user = context.getBean(ForumUser.class);
 
-        assertEquals("John Smith", user.getUsername());
+        String name = user.getUsername();
+
+        assertEquals("John Smith",name);
 
     }
 }

@@ -4,6 +4,6 @@ import org.springframework.stereotype.Component;
 public class Triangle implements Shape {
     @Override
     public String getShapeName() {
-        return "This is a Triangle";
+        return "This is Triangle";
     }
 }

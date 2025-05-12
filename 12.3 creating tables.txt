@@ -1,0 +1,30 @@
+CREATE TABLE ISSUESLISTS (
+    ID SERIAL PRIMARY KEY,
+    NAME VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE ISSUES (
+    ID SERIAL PRIMARY KEY,
+    ISSUESLIST_ID BIGINT UNSIGNED NOT NULL,
+    SUMMARY VARCHAR(100) NOT NULL,
+    DESCRIPTION VARCHAR(255) NOT NULL,
+    USER_ID_ASSIGNEDTO BIGINT UNSIGNED NOT NULL,
+    FOREIGN KEY (ISSUESLIST_ID) REFERENCES ISSUESLISTS(ID),
+    FOREIGN KEY (USER_ID_ASSIGNEDTO) REFERENCES USERS(ID)
+);
+
+INSERT INTO ISSUESLISTS (NAME) VALUES
+    ('ToDo'),
+    ('In Progress'),
+    ('Done');
+
+INSERT INTO ISSUES (ISSUESLIST_ID, SUMMARY, DESCRIPTION, USER_ID_ASSIGNEDTO) VALUES
+    (1, 'Task 1', 'Complete the initial setup for the project', 1),
+    (1, 'Task 2', 'Gather project requirements from stakeholders', 2),
+    (1, 'Task 3', 'Create project wireframes', 3),
+    (2, 'Task 4', 'Develop authentication module', 1),
+    (2, 'Task 5', 'Integrate third-party APIs', 2),
+    (2, 'Task 6', 'Set up CI/CD pipeline', 3),
+    (3, 'Task 7', 'Finalize project documentation', 1),
+    (3, 'Task 8', 'Run final tests and QA', 2),
+    (3, 'Task 9', 'Deploy the project to production', 3);

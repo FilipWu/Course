@@ -59,3 +59,22 @@ public class Company {
         this.employees = employees;
     }
 }
+
+/*
+Zadanie dodatkowe Kolega minimum oraz koleżanka maksimum
+Zadania dodatkowe
+
+To zadanie ma charakter dodatkowy, dlatego nie musisz wysyłać go swojemu Mentorowi.
+
+Dana jest kolekcja liczb (tablica):
+
+3,1,1,5,6,7,9,15,3,4,7,10.
+
+Bez wykorzystania gotowych bibliotek bądź wbudowanych funkcji napisz program, który wyszuka spośród nich wartość:
+
+    drugie minimum (w podanym przykładzie jest to 3)
+    drugie maksimum (w podanym przykładzie jest to 10)
+
+Nie należy ograniczać się do podanego jako przykład zbioru. Program powinien wyszukiwać minimum oraz maksimum z zakresu liczb całkowitych.
+Kluczowe algorytmy zamknij w osobnych funkcjach/metodach tak, żeby można było wywoływać go wielokrotnie dla różnych zbiorów
+ */

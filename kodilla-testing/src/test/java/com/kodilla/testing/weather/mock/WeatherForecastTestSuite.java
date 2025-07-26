@@ -4,14 +4,22 @@ import com.kodilla.testing.weather.stub.Temperatures;                         //
 import com.kodilla.testing.weather.stub.WeatherForecast;                      // [3]
 import org.junit.jupiter.api.Assertions;                                      // [4]
 import org.junit.jupiter.api.Test;                                            // [5]
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import static org.mockito.Mockito.mock;                                       // [6]
 import static org.mockito.Mockito.when;
+import static org.junit.jupiter.api.Assertions.*;
 
-class WeatherForecastTestSuite {                                              // [7]
+@ExtendWith(MockitoExtension.class)
+class WeatherForecastTestSuite {
+
+    @Mock
+    private Temperatures temperatures;
 
     @Test                                                                      // [8]
     void testCalculateForecastWithMock() {                                     // [9]
@@ -45,8 +53,26 @@ class WeatherForecastTestSuite {                                              //
         WeatherForecast weatherForecast = new WeatherForecast(temperaturesMock);
 
         double averageTemperature = weatherForecast.calculateAverageTemperature();
-        //double expectedTemperature = temperaturesMap.v
+        double expectedTemperature = (25.5 + 26.2 + 24.8 + 25.2 + 26.1)/ 5;
 
+        assertEquals(averageTemperature, expectedTemperature, 0.001);
+    }
+
+    @Test
+    void testCalculateMedianTemperature(){
+        Temperatures temperaturesMock = mock(Temperatures.class);
+        Map<String, Double> temperaturesMap = new HashMap<>();
+        temperaturesMap.put("Rzeszow", 25.5);
+        temperaturesMap.put("Krakow", 26.2);
+        temperaturesMap.put("Wroclaw", 24.8);
+        temperaturesMap.put("Warszawa", 25.2);
+        temperaturesMap.put("Gdansk", 26.1);
+        when(temperaturesMock.getTemperatures()).thenReturn(temperaturesMap);
+        WeatherForecast weatherForecast = new WeatherForecast(temperaturesMock);
+
+        double medianTemperature = weatherForecast.calculateMedianTemperature();
+        double expectedMedian = 25.5;
+        assertEquals(medianTemperature, expectedMedian, 0.001);
     }
 }
 

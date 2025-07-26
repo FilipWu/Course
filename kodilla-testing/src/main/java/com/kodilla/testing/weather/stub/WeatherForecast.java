@@ -1,7 +1,10 @@
 package com.kodilla.testing.weather.stub;
 
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class WeatherForecast {
     private Temperatures temperatures;
@@ -22,6 +25,7 @@ public class WeatherForecast {
         }
         return resultMap;
     }
+
     public double calculateAverageTemperature() {
         double sum = 0;
         int count = 0;
@@ -31,7 +35,18 @@ public class WeatherForecast {
              count++;
          }
          return sum / count;
+    }
 
+    public double calculateMedianTemperature() {
+        Map<String, Double> temperatureMap  = temperatures.getTemperatures();
+        List<Double> temperaturesList = temperatureMap.values().stream().collect(Collectors.toList());
+        Collections.sort(temperaturesList);
 
+        int size = temperaturesList.size();
+        if (size % 2 == 1) {
+            return temperaturesList.get(size / 2);
+        } else {
+            return temperaturesList.get(size / 2 - 1) + temperaturesList.get(size / 2) /2.0;
+        }
     }
 }
